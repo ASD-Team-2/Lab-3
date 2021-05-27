@@ -279,26 +279,28 @@ def creating_bst(n):
 
 def benchmark():
     import time
+    from timeit import default_timer as timer
+
     
     for i in range(3):
         n=(10**(i+5))
 
-        start = time.time()
         bst=(creating_bst(n))
+        start = timer()
         bst.insert(2)
-        end = time.time()
+        end = timer()
         print("Insertion time: {} sec".format(end-start) + " of {} nums.".format(n))
-
-        start = time.time()
+        
         bst=(creating_bst(n))
+        timer()
         bst.delete_node(4)   
-        end = time.time()
+        end = timer()
         print("Removing time: {} sec".format(end-start) + " of {} nums.".format(n))
 
-        start = time.time()
         bst=(creating_bst(n))
+        timer()
         bst.searchTree(n/2)
-        end = time.time()
+        end = timer()
         print("Searcing time: {} sec".format(end-start) + " of {} nums.".format(n))      
  
 
